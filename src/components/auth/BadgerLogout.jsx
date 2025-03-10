@@ -1,7 +1,11 @@
-
-import React, { useEffect } from 'react';
+import BadgerLoginStatusContext from '../contexts/BadgerLoginStatusContext';
+import React, { useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function BadgerLogout() {
+
+    const [loginStatus, setLoginStatus] = useContext(BadgerLoginStatusContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('https://cs571api.cs.wisc.edu/rest/s25/hw6/logout', {
@@ -12,6 +16,11 @@ export default function BadgerLogout() {
             credentials: "include"
         }).then(res => res.json()).then(json => {
             // Maybe you need to do something here?
+            
+            console.log("status changed to undefined")
+            sessionStorage.removeItem("loginStatus");
+            setLoginStatus(undefined);
+            navigate("/");
         })
     }, []);
 

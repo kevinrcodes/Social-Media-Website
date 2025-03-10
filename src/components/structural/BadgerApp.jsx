@@ -18,7 +18,10 @@ function BadgerApp() {
       headers: {
         "X-CS571-ID": CS571.getBadgerId(),
       }
-    }).then(res => res.json()).then(json => {
+    })
+    .then(res => res.json())
+    .then(json => {
+      console.log(json);
       setChatrooms(json)
     })
   }, []);
