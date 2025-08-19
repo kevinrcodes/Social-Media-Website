@@ -24,7 +24,7 @@ A modern, full-stack social media platform built with React that enables users t
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/kevinrcodes/Social-Media-Website
    cd social-media-website
    ```
 
